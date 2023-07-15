@@ -1,4 +1,22 @@
 ---
+import "../styles/global.css";
+
+const title = "About Me";
+
+const identity = {
+  firstName: "Nikita",
+  country: "Georgia",
+  occupation: "Software designer",
+  hobbies: ["skateboarding", "snowboarding", "baseball"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+
+const happy = false;
+
+const skillColor = "red";
+const fontWeight = "900";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -7,13 +25,28 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro</title>
+    <title>{title}</title>
   </head>
   <body>
     <a href="/">Home</a>
     <a href="/about/">About</a>
     <a href="/blog/">Blog</a>
-    <h1>About</h1>
+    <h1>{title}</h1>
     <p>Just setting up my Astro :-)</p>
+    <p>Some info about me:</p>
+    <ul>
+      <li>My name is {identity.firstName}</li>
+      <li>I live in {identity.country}</li>
+      <li>I'm a {identity.occupation}</li>
+    </ul>
+    <p>My skills:</p>
+    <ul>
+      {skills.map((skill) => <li class="skill">{skill}</li>)}
+    </ul>
+    <p>
+      {happy ? "I'm pretty happy right now" : "I'm not really happy right now"}
+    </p>
   </body>
 </html>
+
+<style define:vars={{ skillColor, fontWeight, textCase }}></style>
