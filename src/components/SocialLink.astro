@@ -1,0 +1,5 @@
+---
+const { platform, domain, username } = Astro.props;
+---
+
+<a href={`https://www.${domain}/${username}`}>{platform}</a>
